@@ -7,15 +7,77 @@ local_settings.py
 db.sqlite3
 db.sqlite3-journal
 
-# If your build process includes running collectstatic, then you probably don't need or want to include staticfiles/
-# in your Git repository. Update and uncomment the following line accordingly.
-# <django-project-name>/staticfiles/
+# Django REST Framework
+*.sqlite3
+media/
+static/
+staticfiles/
 
-### Example user template template
-### Example user template
+# REST Framework JWT
+*.key
+*.pem
+*.p12
+*.crt
+*.cert
 
-# IntelliJ project files
-.idea
-*.iml
-out
-gen
+# Environment and credentials
+.env
+.env.local
+.env.*.local
+.venv/
+venv/
+ENV/
+
+# Python
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Testing and coverage
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# IDEs and editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+*.sublime-*
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Project specific
+celerybeat-schedule
+celerybeat.pid
+
+# Database migrations (uncomment if you don't want to track migrations)
+# */migrations/*.py
+# !*/migrations/__init__.py
