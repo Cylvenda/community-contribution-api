@@ -44,7 +44,7 @@ class User(AbstractBaseUser):
     last_name = models.CharField(max_length=60)
     email = models.EmailField(unique=True, max_length=255)
     username = models.CharField(max_length=60, unique=True)
-    phone = models.CharField(max_length=60, unique=True)
+    phone = models.CharField(max_length=60, unique=True, null=True)
     profile_image = models.ImageField(upload_to="uploads/", validators=[validate_image], null=True, blank=True)
     is_active = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)

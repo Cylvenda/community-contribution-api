@@ -20,8 +20,25 @@ MEDIA_ROOT = BASE_DIR / "media"
 
 ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
 
-CORS_ALLOWED_ORIGINS = ["http://localhost:5173", "http://127.0.0.1:5173"]
-CORS_ALLOWED_CREDENTIALS = True
+CORS_ALLOW_CREDENTIALS = True
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+]
+
+AUTH_COOKIE = "access"
+AUTH_COOKIE_ACCESS_MAX_AGE = 60 * 10  # 10 minutes
+AUTH_COOKIE_REFRESH_MAX_AGE = 60 * 60 * 24  # 24 hrs
+AUTH_COOKIE_SECURE = True  # In development must be true
+AUTH_COOKIE_HTTP_ONLY = False
+AUTH_COOKIE_PATH = "/"
+AUTH_COOKIE_SAMESITE = "Lax"
 
 DOMAIN = "localhost:5173"
 SITE_NAME = "Community Contribution"
@@ -42,7 +59,6 @@ INSTALLED_APPS = [
     "rest_framework_simplejwt.token_blacklist",
     "drf_yasg",
     "corsheaders",
-    "django_seed",
     # Local apps
     "api",
     "accounts",
@@ -51,8 +67,8 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
-    "corsheaders.middleware.CorsMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -135,18 +151,11 @@ DJOSER = {
     "PASSWORD_RESET_SHOW_EMAIL_NOT_FOUND": True,
     "SERIALIZERS": {
         "current_user": "accounts.serializers.CustomUserSerializer",
-        'user': "accounts.serializers.CustomUserSerializer",
-        'provider_auth': 'djoser.social.serializers.ProviderAuthSerializer',
+        "user": "accounts.serializers.CustomUserSerializer",
+        "provider_auth": "djoser.social.serializers.ProviderAuthSerializer",
     },
 }
 
-AUTH_COOKIE = "access"
-AUTH_COOKIE_ACCESS_MAX_AGE = 60 * 10  # 10 minutes
-AUTH_COOKIE_REFRESH_MAX_AGE = 60 * 60 * 24  # 24 hrs
-AUTH_COOKIE_SECURE = True  # In development must be true
-AUTH_COOKIE_HTTP_ONLY = True
-AUTH_COOKIE_PATH = "/"
-AUTH_COOKIE_SAMESITE = "None"
 
 AUTHENTICATION_BACKENDS = [
     "djoser.auth_backends.LoginFieldBackend",
@@ -159,7 +168,6 @@ REST_FRAMEWORK = {
     ],
     "DEFAULT_AUTHENTICATION_CLASSES": [
         "accounts.authentication.CustomJWTAuthentication",
-
     ],
 }
 

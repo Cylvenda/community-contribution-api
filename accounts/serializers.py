@@ -9,10 +9,9 @@ class CustomUserSerializer(UserSerializer):
             "id",
             "first_name",
             "last_name",
-            "full_name",
             "username",
             "email",
             "phone",
             "profile_image",
         ]
-        read_only_fields = ["id","full_name",]
+        read_only_fields = ["id"]
