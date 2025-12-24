@@ -21,7 +21,7 @@ A Django REST Framework based backend API for the Mkuu platform, providing user 
 1. Clone the repository:
    ```bash
    git clone https://github.com/Cylvenda/community-contribution-api.git
-   cd backend
+   cd community-contribution-api
    ```
 
 2. Create and activate a virtual environment:
