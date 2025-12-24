@@ -1,4 +1,4 @@
-# Mkuu Backend API
+# Community Contribution
 
 A Django REST Framework based backend API for the Mkuu platform, providing user authentication and account management functionality.
 
